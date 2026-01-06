@@ -67,7 +67,7 @@ const TeacherView: React.FC<TeacherViewProps> = ({ students, onImportData, onUpd
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (evt) => {
+    reader.onload = async (evt) => {
       const bstr = evt.target?.result;
       const wb = XLSX.read(bstr, { type: 'binary' });
       const studentMap = new Map<string, Student>();
